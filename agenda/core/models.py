@@ -10,6 +10,10 @@ class Evento(models.Model):
     data_criacao = models.DateTimeField(auto_now=True)
 
 
-    #forçar o nome da tabela ser evento
+    #forçar o nome da tabela no db ser o mesmo nome da classe
     class Meta:
         db_table = "evento"
+
+    #faz com que o nome do objeto criado seja o mesmo do titulo
+    def __str__(self):
+        return self.titulo
