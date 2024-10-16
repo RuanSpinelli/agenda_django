@@ -3,7 +3,17 @@ from core.models import Evento
 
 # Create your views here.
 def lista_eventos(request):
+    
     usuario = request.user
-    evento = Evento.objects.filter(usuario= usuario)
+    evento = Evento.objects.filter(usuario= usuario)    
     dados = {'eventos': evento}
     return render(request , 'agenda.html', dados)
+    """
+    eventos = Evento.objects.all()  # Obtém todos os eventos
+    return render(request, 'agenda.html', {'eventos': eventos})  # Certifique-se de que 'agenda.html' está no caminho correto
+    """
+
+
+
+
+

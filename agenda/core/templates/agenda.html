@@ -1,9 +1,11 @@
-{% extends "core/models-header.html" %}
+{% extends "model-header.html" %}
 
 {% block content %}
     <h2>Agendamentos</h2>
 
     <p>Teste de depuração. Se você vê isso, o template está funcionando.</p>
+
+    <p>Total de eventos: {{ eventos.count }}</p>  <!-- Adicione esta linha -->
 
     <ul style="font-size: 18px;">
         {% for evento in eventos %}
@@ -13,3 +15,4 @@
         {% endfor %}
     </ul>
 {% endblock %}
+
