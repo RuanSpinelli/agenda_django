@@ -15,10 +15,13 @@ Including another URLconf
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
 from django.contrib import admin
-from django.urls import path
+from django.urls import path, include
 from core import views
+from django.http import HttpResponseRedirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path("agenda/", views.lista_eventos, name="lista_eventos")
+    path('', lambda request: HttpResponseRedirect('/agenda/')),
+    path("", views.index),
+    path('agenda/', include('core.urls')),  # Certifique-se que o core.urls existe
 ]

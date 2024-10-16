@@ -1,13 +1,10 @@
-{% extends "model-header.html" %}
+{% extends "model-page.html" %}
+
+{% block title %}Minha Agenda{% endblock %}
 
 {% block content %}
     <h2>Agendamentos</h2>
-
-    <p>Teste de depuração. Se você vê isso, o template está funcionando.</p>
-
-    <p>Total de eventos: {{ eventos.count }}</p>  <!-- Adicione esta linha -->
-
-    <ul style="font-size: 18px;">
+    <ul>
         {% for evento in eventos %}
             <li>{{ evento.titulo }} - {{ evento.get_data_evento }}</li>
         {% empty %}
@@ -15,4 +12,3 @@
         {% endfor %}
     </ul>
 {% endblock %}
-
