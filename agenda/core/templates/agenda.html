@@ -1,13 +1,15 @@
-{% extends "models-header.html"}
+{% extends "core/models-header.html" %}
 
 {% block content %}
     <h2>Agendamentos</h2>
 
+    <p>Teste de depuração. Se você vê isso, o template está funcionando.</p>
 
-    <ul style="font-size: 18;">
+    <ul style="font-size: 18px;">
         {% for evento in eventos %}
-            <li> {{ evento.titulo}} - {{evento.get_data_evento}}</li>   
+            <li>{{ evento.titulo }} - {{ evento.get_data_evento }}</li>
+        {% empty %}
+            <li>Nenhum evento encontrado.</li>
         {% endfor %}
     </ul>
-{% blockend %}
-
+{% endblock %}
