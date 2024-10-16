@@ -1,11 +1,13 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Agenda</title>
-</head>
-<body>
-    <h1>Agendamentos</h1>
-</body>
-</html>
+{% extends "models-header.html"}
+
+{% block content %}
+    <h2>Agendamentos</h2>
+
+
+    <ul style="font-size: 18;">
+        {% for evento in eventos %}
+            <li> {{ evento.titulo}} - {{evento.get_data_evento}}</li>   
+        {% endfor %}
+    </ul>
+{% blockend %}
+

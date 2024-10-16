@@ -19,3 +19,7 @@ class Evento(models.Model):
     #faz com que o nome do objeto criado seja o mesmo do titulo
     def __str__(self):
         return self.titulo
+    
+
+    def get_data_evento(self):
+        return self.data_evento.strftime("%d/%m/%y %H:%M")
