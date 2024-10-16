@@ -5,16 +5,15 @@ from core.models import Evento
 
 def lista_eventos(request):
     usuario = request.user
-    if usuario.is_authenticated:
-        evento = Evento.objects.all()
-        print(f'Eventos encontrados: {evento}')  # Linha de depuração
-    else:
-        evento = Evento.objects.none()  # Retorna um QuerySet vazio se o usuário não estiver autenticado
-
+    evento = Evento.objects.filter(usuario= usuario)    
     dados = {'eventos': evento}
-    return render(request, 'agenda.html', dados)
+    return render(request , 'agenda.html', dados)
+    """
+    eventos = Evento.objects.all()  # Obtém todos os eventos
+    return render(request, 'agenda.html', {'eventos': eventos})  # Certifique-se de que 'agenda.html' está no caminho correto
+    """
 
 
-def index(request):
-    return redirect('/agenda /')
+
+
 

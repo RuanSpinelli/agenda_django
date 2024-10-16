@@ -21,7 +21,5 @@ from django.http import HttpResponseRedirect
 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('', lambda request: HttpResponseRedirect('/agenda/')),
-    path("", views.index),
-    path('agenda/', include('core.urls')),  # Certifique-se que o core.urls existe
+    path("agenda/", views.lista_eventos, name="lista_eventos")
 ]
