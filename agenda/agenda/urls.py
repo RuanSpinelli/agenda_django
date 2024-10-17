@@ -22,5 +22,7 @@ from django.http import HttpResponseRedirect
 urlpatterns = [
     path('admin/', admin.site.urls),
     path("agenda/", views.lista_eventos, name="lista_eventos"),
-    path("", views.index)
+    path("", views.index),
+    path('login/', views.login_user),
+    path('login/submit', views.submit_login)
 ]
