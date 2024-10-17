@@ -1,8 +1,8 @@
 from django.shortcuts import render, redirect
 from core.models import Evento
 from django.contrib.auth.decorators import login_required
-from django.contrib.auth import authenticate, login
-
+from django.contrib.auth import authenticate, login, logout
+from django.contrib import messages
 
 # Create your views here.
 
@@ -14,6 +14,10 @@ def index(request):
 def login_user(request):
     return render(request, 'login.html')
 
+
+def logout_user(request):
+    logout(request)
+    return redirect('/')
 
 
 def submit_login(request):
@@ -27,8 +31,7 @@ def submit_login(request):
             login(request, user)
             return redirect('/agenda/')
         else:
-            return redirect('/login/')  # Ou retornar uma mensagem de erro
-
+            messages.error(request, "Usuário ou senha inválido")
     return redirect('/login/')
 
 
