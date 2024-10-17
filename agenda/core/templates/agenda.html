@@ -3,8 +3,9 @@
 {% block content %}
     <h2>Agendamentos</h2>
 
-    
-
+    <a href="{% url 'evento' %}">
+        <button type="button"> Novo evento</button>
+    </a>
     <p>Total de eventos: {{ eventos.count }}</p>  <!-- Adicione esta linha -->
 
     <ul style="font-size: 18px;">
