@@ -3,10 +3,18 @@
 {% block content %}
     <h2>Agendamentos</h2>
     <h1>Saudações, {{ nome_usuario }}!</h1>  
+     <!-- Adicionando o link para login -->
+    <a href="{% url 'login' %}">
+        <button type="button">Trocar de conta</button>
+    </a>
+    <br>
+    <br>
     <a href="{% url 'evento' %}">
-        <button type="button"> Novo evento</button>
+        <button type="button">Novo evento</button>
     </a>
     <p>Total de eventos: {{ eventos.count }}</p>
+
+    
 
     <ul style="font-size: 18px;">
         {% for evento in eventos %}
@@ -17,8 +25,8 @@
                         [ATRASADO]
                     {% endif %}
                     - {{ evento.get_data_evento }} 
-                    (<a href="evento/?id={{evento.id}}"> Editar  </a>/ 
-                    <a href="{% url 'delete_evento' evento.id %}"> Excluir </a>)
+                    (<a href="evento/?id={{evento.id}}">Editar</a>/ 
+                    <a href="{% url 'delete_evento' evento.id %}">Excluir</a>)
                 </div>
             </li>
         {% empty %}
