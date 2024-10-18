@@ -23,9 +23,10 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path("agenda/", views.lista_eventos, name="lista_eventos"),
     path("", views.index),
+    path("agenda/evento/delete/<int:id_evento>", views.delete_evento, name="delete_evento"),
     path('login/', views.login_user, name="login"),
     path("agenda/evento/submit", views.submit_evento),
     path('login/submit', views.submit_login),
     path('logout/', views.logout_user),
-    path("agenda/evento/", views.evento, name="evento")
+    path("agenda/evento/", views.evento, name="evento"),
 ]
